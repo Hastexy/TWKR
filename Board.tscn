@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh7upt4wb52vx"]
+
+[ext_resource type="Texture2D" uid="uid://d4ik0djajmhks" path="res://Tiles/knight.png" id="1_18vpd"]
+[ext_resource type="Texture2D" uid="uid://dp7casrhm5bg0" path="res://Tiles/black tile.png" id="2_l6tyq"]
+[ext_resource type="Texture2D" uid="uid://dmt243eo1a2fq" path="res://Tiles/White tile.png" id="3_wedip"]
+[ext_resource type="PackedScene" uid="uid://obr5qnospahd" path="res://Player.tscn" id="4_0x64y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm0fy"]
+texture = ExtResource("1_18vpd")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hnv5a"]
+texture = ExtResource("2_l6tyq")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyt57"]
+texture = ExtResource("3_wedip")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1qef7"]
+resource_local_to_scene = true
+tile_size = Vector2i(18, 18)
+sources/0 = SubResource("TileSetAtlasSource_qm0fy")
+sources/1 = SubResource("TileSetAtlasSource_hnv5a")
+sources/2 = SubResource("TileSetAtlasSource_xyt57")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1qef7")
+format = 2
+layer_0/name = "Chess Pieces"
+layer_0/z_index = 1
+layer_1/name = "Chess Board"
+layer_1/tile_data = PackedInt32Array(-262149, 1, 0, -196613, 2, 0, -131077, 1, 0, -65541, 2, 0, -5, 1, 0, 65531, 2, 0, 131067, 1, 0, 196603, 2, 0, 262139, 1, 0, 327675, 2, 0, -262148, 2, 0, -196612, 1, 0, -131076, 2, 0, -65540, 1, 0, -4, 2, 0, 65532, 1, 0, 131068, 2, 0, 196604, 1, 0, 262140, 2, 0, 327676, 1, 0, -262147, 1, 0, -196611, 2, 0, -131075, 1, 0, -65539, 2, 0, -3, 1, 0, 65533, 2, 0, 131069, 1, 0, 196605, 2, 0, 262141, 1, 0, 327677, 2, 0, -262146, 2, 0, -196610, 1, 0, -131074, 2, 0, -65538, 1, 0, -2, 2, 0, 65534, 1, 0, 131070, 2, 0, 196606, 1, 0, 262142, 2, 0, 327678, 1, 0, -262145, 1, 0, -196609, 2, 0, -131073, 1, 0, -65537, 2, 0, -1, 1, 0, 65535, 2, 0, 131071, 1, 0, 196607, 2, 0, 262143, 1, 0, 327679, 2, 0, -327680, 2, 0, -262144, 1, 0, -196608, 2, 0, -131072, 1, 0, -65536, 2, 0, 0, 1, 0, 65536, 2, 0, 131072, 1, 0, 196608, 2, 0, 262144, 1, 0, -327679, 1, 0, -262143, 2, 0, -196607, 1, 0, -131071, 2, 0, -65535, 1, 0, 1, 2, 0, 65537, 1, 0, 131073, 2, 0, 196609, 1, 0, 262145, 2, 0, -327678, 2, 0, -262142, 1, 0, -196606, 2, 0, -131070, 1, 0, -65534, 2, 0, 2, 1, 0, 65538, 2, 0, 131074, 1, 0, 196610, 2, 0, 262146, 1, 0, -327677, 1, 0, -262141, 2, 0, -196605, 1, 0, -131069, 2, 0, -65533, 1, 0, 3, 2, 0, 65539, 1, 0, 131075, 2, 0, 196611, 1, 0, 262147, 2, 0, -327676, 2, 0, -262140, 1, 0, -196604, 2, 0, -131068, 1, 0, -65532, 2, 0, 4, 1, 0, 65540, 2, 0, 131076, 1, 0, 196612, 2, 0, 262148, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_0x64y")]
+position = Vector2(9, 9)
