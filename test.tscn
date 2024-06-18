@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh7upt4wb52vx"]
+[gd_scene load_steps=3 format=3 uid="uid://bh7upt4wb52vx"]
 
 [ext_resource type="Texture2D" uid="uid://bqmf2b1m2ugfo" path="res://icon.svg" id="1_vhla0"]
+[ext_resource type="TileSet" path="res://Tiles" id="2_d5dhj"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vhla0")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_d5dhj")
+format = 2
