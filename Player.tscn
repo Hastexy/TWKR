@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://Player.cs" id="1_qe4rr"]
 [ext_resource type="Texture2D" uid="uid://d4ik0djajmhks" path="res://Tiles/knight.png" id="1_uhg63"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("indicators")]
 script = ExtResource("1_qe4rr")
+indicators = [null, null, null]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uhg63")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(10.5, 10.5)

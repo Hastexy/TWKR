@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcx71x4y7r1uk"]
+
+[ext_resource type="Texture2D" uid="uid://dmt243eo1a2fq" path="res://Tiles/White tile.png" id="1_el2nn"]
+
+[node name="Indicator" type="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 0.298039, 1)
+z_index = -1
+texture = ExtResource("1_el2nn")
