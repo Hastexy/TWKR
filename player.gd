@@ -14,7 +14,6 @@ var endpoints
 func _ready():
 	player.position = Vector2i(9,9)
 	walkable_tiles = floor_tilemap.get_used_cells(0)
-	print(walkable_tiles)
 	IndicateMoves()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +28,8 @@ func DrawIndicators():
 	
 func IndicateMoves():
 	endpoints = GetEndpoints()
+	if move_index >= endpoints.size():
+		move_index = 0
 	move_selected = false
 	
 func SelectMove():
@@ -38,13 +39,11 @@ func SelectMove():
 		if move_index == endpoints.size():
 			move_index = 0
 		cur_move = endpoints[move_index]
-		print("move selected: ", cur_move)
 	elif Input.is_action_just_pressed("Move Left"):
 		move_index -= 1
 		if move_index == -1:
 			move_index = endpoints.size()
 		cur_move = endpoints[move_index]
-		print("move selected: ", cur_move)
 	elif Input.is_action_just_pressed("Select"):
 		player.position += Vector2(cur_move.x, cur_move.y)*18
 		pos += cur_move
@@ -61,16 +60,12 @@ func EditMoves(curside, opposite, other, oppositeother, transform):
 	var y = player.position.y + transform.y
 	player.position = Vector2i(x,y)
 	pos += transform/18
-	print(pos)
 	
 func GetEndpoints():
 	var endpoint_base = [Vector2i(1,-2), Vector2i(2,-1), Vector2i(2,1), Vector2i(1,2), Vector2i(-1,2), Vector2i(-2,1), Vector2i(-2,-1), Vector2i(-1,-2)]
 	var inbound_endpoints = []
-	print("--------------------------")
 	for endpoint in endpoint_base:
 		var new_point = pos + endpoint
-		print(new_point," in bounds?: ", new_point in walkable_tiles)
 		if new_point in walkable_tiles:
 			inbound_endpoints.append(endpoint)
-	print("--------------------------")
 	return inbound_endpoints
