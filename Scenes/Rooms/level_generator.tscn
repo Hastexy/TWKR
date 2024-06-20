@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bibnvg608lld6"]
+
+[ext_resource type="Script" path="res://Scripts/LevelGenerator.gd" id="1_g2fce"]
+[ext_resource type="PackedScene" uid="uid://1lod2clolyr8" path="res://Scenes/playerCollisionBased.tscn" id="2_m04dq"]
+
+[node name="LevelGenerator" type="Node2D"]
+script = ExtResource("1_g2fce")
+
+[node name="Player" parent="." instance=ExtResource("2_m04dq")]

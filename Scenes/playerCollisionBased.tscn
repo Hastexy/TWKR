@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=3 uid="uid://1lod2clolyr8"]
+
+[ext_resource type="Texture2D" uid="uid://c0jsjib3qt2lh" path="res://TileAtlas.png" id="1_saosu"]
+[ext_resource type="Script" path="res://Scripts/PlayerCollisionBased.gd" id="2_wwq4c"]
+[ext_resource type="Script" path="res://Scripts/PlayerEndpoints.gd" id="3_8grgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro7no"]
+size = Vector2(16, 16)
+
+[node name="Player" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_saosu")
+centered = false
+hframes = 3
+script = ExtResource("2_wwq4c")
+
+[node name="Endpoints" type="Node2D" parent="."]
+script = ExtResource("3_8grgk")
+
+[node name="Endpoint1" type="Button" parent="Endpoints"]
+offset_left = -18.0
+offset_top = -36.0
+offset_bottom = -18.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint1"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint1/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint1"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint2" type="Button" parent="Endpoints"]
+offset_left = -36.0
+offset_top = -18.0
+offset_right = -18.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint2"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint2/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint2"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint3" type="Button" parent="Endpoints"]
+offset_left = -36.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 36.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint3"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint3/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint3"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint4" type="Button" parent="Endpoints"]
+offset_left = -18.0
+offset_top = 36.0
+offset_bottom = 54.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint4"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint4/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint4"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint5" type="Button" parent="Endpoints"]
+offset_left = 18.0
+offset_top = 36.0
+offset_right = 36.0
+offset_bottom = 54.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint5"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint5/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint5"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint6" type="Button" parent="Endpoints"]
+offset_left = 36.0
+offset_top = 18.0
+offset_right = 54.0
+offset_bottom = 36.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint6"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint6/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint6"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint7" type="Button" parent="Endpoints"]
+offset_left = 36.0
+offset_top = -18.0
+offset_right = 54.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint7"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint7/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint7"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Endpoint8" type="Button" parent="Endpoints"]
+offset_left = 18.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = -18.0
+flat = true
+
+[node name="EndpointCollider" type="Area2D" parent="Endpoints/Endpoint8"]
+position = Vector2(9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoints/Endpoint8/EndpointCollider"]
+shape = SubResource("RectangleShape2D_ro7no")
+
+[node name="EndpointVisual" type="Sprite2D" parent="Endpoints/Endpoint8"]
+modulate = Color(1, 1, 0.415686, 0.658824)
+position = Vector2(9, 9)
+texture = ExtResource("1_saosu")
+hframes = 3
+frame = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Endpoints/Endpoint1" to="Endpoints" method="_on_endpoint_1_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint2" to="Endpoints" method="_on_endpoint_2_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint3" to="Endpoints" method="_on_endpoint_3_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint4" to="Endpoints" method="_on_endpoint_4_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint5" to="Endpoints" method="_on_endpoint_5_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint6" to="Endpoints" method="_on_endpoint_6_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint7" to="Endpoints" method="_on_endpoint_7_pressed"]
+[connection signal="pressed" from="Endpoints/Endpoint8" to="Endpoints" method="_on_endpoint_8_pressed"]
