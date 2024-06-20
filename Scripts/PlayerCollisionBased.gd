@@ -11,17 +11,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("Select"):
-		HideInvalidEndpoints()
+	pass
 
 
 
 func MovePlayer(movement : Vector2i):
 	board_pos += movement
-	
 	var player_movement_tween = create_tween()
-	player_movement_tween.tween_property(self, "global_position", Vector2(board_pos * 18), 0.1)
+	player_movement_tween.tween_property(self, "global_position", Vector2(board_pos * 18), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	HideAllEndpoints()
+	
 	await player_movement_tween.finished
 	await get_tree().create_timer(0.1).timeout
 	HideInvalidEndpoints()
