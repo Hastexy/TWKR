@@ -41,8 +41,8 @@ func HideInvalidEndpoints():
 
 func CheckEndpointValidity(endpoint):
 	if endpoint.get_child(0).get_overlapping_bodies() == []:
-		return true
-	return false
+		return false
+	return true
 
 
 
