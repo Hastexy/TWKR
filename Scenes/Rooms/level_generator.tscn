@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bibnvg608lld6"]
+[gd_scene load_steps=4 format=3 uid="uid://bibnvg608lld6"]
 
 [ext_resource type="Script" path="res://Scripts/LevelGenerator.gd" id="1_g2fce"]
 [ext_resource type="PackedScene" uid="uid://1lod2clolyr8" path="res://Scenes/playerCollisionBased.tscn" id="2_m04dq"]
+[ext_resource type="PackedScene" uid="uid://56pkkyjf6m8v" path="res://Scenes/Enemy.tscn" id="3_awt0g"]
 
 [node name="LevelGenerator" type="Node2D"]
 script = ExtResource("1_g2fce")
 
 [node name="Player" parent="." instance=ExtResource("2_m04dq")]
+z_index = 2
+
+[node name="Enemy" parent="." instance=ExtResource("3_awt0g")]

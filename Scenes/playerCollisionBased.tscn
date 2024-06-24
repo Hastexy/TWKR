@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://1lod2clolyr8"]
+[gd_scene load_steps=6 format=3 uid="uid://1lod2clolyr8"]
 
 [ext_resource type="Texture2D" uid="uid://c0jsjib3qt2lh" path="res://TileAtlas.png" id="1_saosu"]
 [ext_resource type="Script" path="res://Scripts/PlayerCollisionBased.gd" id="2_wwq4c"]
 [ext_resource type="Script" path="res://Scripts/PlayerEndpoints.gd" id="3_8grgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro7no"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tovl7"]
 size = Vector2(16, 16)
 
 [node name="Player" type="Sprite2D"]
@@ -174,7 +177,14 @@ hframes = 3
 frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.575, 0.575)
+zoom = Vector2(2, 2)
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="ColliderBox" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(9, 9)
+shape = SubResource("RectangleShape2D_tovl7")
+debug_color = Color(0.933333, 0.996078, 0.211765, 0.254902)
 
 [connection signal="pressed" from="Endpoints/Endpoint1" to="Endpoints" method="_on_endpoint_1_pressed"]
 [connection signal="pressed" from="Endpoints/Endpoint2" to="Endpoints" method="_on_endpoint_2_pressed"]

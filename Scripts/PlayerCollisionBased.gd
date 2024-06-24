@@ -1,7 +1,10 @@
 extends Sprite2D
 
 @onready var endpoints = $Endpoints
+@onready var player_collider = $PlayerArea/ColliderBox
 var board_pos : Vector2i = Vector2i(0, 0)
+var dead = false
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,20 +14,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if dead:
+		HideAllEndpoints()
 
 
 
 func MovePlayer(movement : Vector2i):
+	player_collider.disabled = true
 	board_pos += movement
 	var player_movement_tween = create_tween()
 	player_movement_tween.tween_property(self, "global_position", Vector2(board_pos * 18), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	HideAllEndpoints()
-	
 	await player_movement_tween.finished
 	await get_tree().create_timer(0.1).timeout
 	HideInvalidEndpoints()
-
+	player_collider.disabled = false
 
 func HideAllEndpoints():
 	for i in endpoints.get_children(): 
