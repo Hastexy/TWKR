@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://l7pnqho0xhut"]
+
+[ext_resource type="Texture2D" uid="uid://ccx6rw5b7w6t5" path="res://Tiles/pawn.png" id="1_pua70"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="2_a5bo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3a8y"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjrw2"]
+size = Vector2(17, 17)
+
+[node name="Pawn" type="Sprite2D"]
+modulate = Color(1, 0.168627, 0.239216, 1)
+z_index = 1
+texture = ExtResource("1_pua70")
+centered = false
+offset = Vector2(1, 1)
+script = ExtResource("2_a5bo3")
+
+[node name="EnemyCollider" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="ColliderBox" type="CollisionShape2D" parent="EnemyCollider"]
+position = Vector2(9, 9)
+shape = SubResource("RectangleShape2D_f3a8y")
+debug_color = Color(0.824594, 0.356388, 0.475274, 0.42)
+
+[node name="Movement Colliders" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Movement Colliders"]
+metadata/Direction = Vector2i(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movement Colliders/Area2D"]
+position = Vector2(9, -9)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0, 0.965639, 0.89194, 0.466667)
+
+[node name="Area2D2" type="Area2D" parent="Movement Colliders"]
+metadata/Direction = Vector2i(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movement Colliders/Area2D2"]
+position = Vector2(27, 9)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0, 0.965639, 0.89194, 0.466667)
+
+[node name="Area2D3" type="Area2D" parent="Movement Colliders"]
+metadata/Direciton = Vector2i(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movement Colliders/Area2D3"]
+position = Vector2(9, 27)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0, 0.965639, 0.89194, 0.466667)
+
+[node name="Area2D4" type="Area2D" parent="Movement Colliders"]
+metadata/Direction = Vector2i(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movement Colliders/Area2D4"]
+position = Vector2(-9, 9)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0, 0.965639, 0.89194, 0.466667)
+
+[node name="Killing Colliders" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Killing Colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killing Colliders/Area2D"]
+position = Vector2(-9, -9)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0.924995, 0.855709, 0, 0.466667)
+
+[node name="Area2D2" type="Area2D" parent="Killing Colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killing Colliders/Area2D2"]
+position = Vector2(27, 27)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0.924995, 0.855709, 0, 0.466667)
+
+[node name="Area2D3" type="Area2D" parent="Killing Colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killing Colliders/Area2D3"]
+position = Vector2(-9, 27)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0.924995, 0.855709, 0, 0.466667)
+
+[node name="Area2D4" type="Area2D" parent="Killing Colliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killing Colliders/Area2D4"]
+position = Vector2(27, -9)
+shape = SubResource("RectangleShape2D_bjrw2")
+debug_color = Color(0.924995, 0.855709, 0, 0.466667)
+
+[connection signal="area_entered" from="EnemyCollider" to="." method="_on_enemy_collider_area_entered"]
